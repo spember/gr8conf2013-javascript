@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="layout" content="reveal"/>
+    <title></title>
+</head>
+<body>
+
+    <section data-transition="fade">
+        <h1>Fundamentals of Javascript Single Page Web-apps</h1>
+        <p>
+            <small>Steve Pember / <a href="http://twitter.com/svpember">@svpember</a></small>
+        </p>
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'js-logo.png')}" alt="js logo"/>
+    </section>
+
+    <section>
+        <h2>A Web Application's Goal is an Engaging User Experience</h2>
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'js-king.jpg')}" alt="JS is the King">
+        <aside class="notes">
+            JS is by far the better system for building more engaging experiences<br/>
+            - it is EATING the rest of the world. Flash, Flex, and it's ilk - things we used to use a couple years ago - have been marginalized by this quirky little language.<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>What makes an Engaging Experience?</h2>
+        <ul>
+            <li>Content</li>
+            <li>Design</li>
+            <li class="fragment grow">Performance</li>
+        </ul>
+    </section>
+
+    <section id="ttg">
+        <img src="${resource(dir: 'images', file: '1000_ttg.jpg')}" alt="Time to Glass: 1000ms"/>
+        <aside class="notes">
+            Much of this latency is out of your control, especially on mobile. Control what you can
+        </aside>
+    </section>
+
+    <section>
+        <h2>Triggering a full page refresh is <span class="focus-word">horrible</span> UX</h2>
+        <aside class="notes">
+            Triggering a full page refresh is one of the slowest things you can do for a user experience<br/>
+        </aside>
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'blank_screen.png')}" alt="Blank screens are bad"/>
+        <aside class="notes">
+            You never want to have your users see this, or somewhat worse: <br/>
+            Site they were just on, clicked a link, and wait for a bit before the screen changes<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>Goal: Update Page content based on user input</h2>
+        <h3 class="fragment fade-in">Could we just use a sprinkling of AJAX / PJAX?</h3>
+    </section>
+
+    <section>
+        <h2>You should spend at least as much engineering on your Front End as your Back End</h2>
+    </section>
+
+
+    <section data-markdown>
+        ## TODO: MVCMV diagram, showing two apps separated by an API call
+    </section>
+
+    <section>
+        <p>TODO: IMG of Developer tools</p>
+        <aside class="notes">Take hold of them!</aside>
+    </section>
+
+    <section data-markdown>
+        ## Bonus: your business now has an API
+        ### (Embrace SOA!)
+    </section>
+
+    <section data-markdown>
+        ## Quick Demo! 
+        ### TODO: make demo. One app is SPA, other is not. Add artificial delay
+    </section>
+
+    <section data-transition="fade">
+        <h1>Single Page Apps are the future</h1>
+         <h2>If you're not doing it, you <span class="focus-word">will</span> be left behind</h2>
+        <aside class="notes">
+            Your competitors are going to be doing it
+        </aside>
+    </section>
+
+    <section>
+        <p class="quote">"Application architectures are changing. The traditional model that the Servlet era APIs were designed for is becoming valid for fewer and fewer cases."</p>
+
+        <p class="quote">"Mobile and Rich web apps are driving this revolution. Many folks are simply serving up JSON to be consumed by rich clients. So where does Grails fit into this world?"</p>
+
+        <p class="fragment fade-in"><span class="focus-word">Graeme Rocher</span> / <a href="http://grails.io/day/2013/04/22/" target="_blank">April 22, 2013</a></p>
+
+        <aside class="notes">
+            I know my previous claim is full of hyperbole, but it's not entirely off<br/>
+            This is the only time I'll read straight off of a slide, I promise<br/>
+            Sounds a bit begrudging, eh?
+
+        </aside>
+    </section>
+
+    <section data-transition="fade">
+        <h1>Foundations of a SPA and... Why <span class="focus-word">Grails?</span></h1>
+    </section>
+
+    <section>
+        <h1>Responsive Applications</h1>
+    </section>
+
+    <section>
+        <h2>Responsive Design</h2>
+        <ul>
+            <li>Flexible Grids</li>
+            <li>Media Queries</li>
+            <li>Flexible Images</li>
+            <li class="fragment fade-in">Responsive Architecture</li>
+            <li class="fragment fade-in">Responsive Responses</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Dynamically load / unload Interactive features based on device capabilities</h2>
+    </section>
+
+    <section>
+        <h2>TIP: Use Modernizr to responsively adjust JS capabilities</h2>
+        <pre>
+            <code data-trim>
+var smallBreak = Modernizr.mq("only all and (max-width: 400px)"));
+//... later on ...
+if (smallBreak) {
+    // do something for a small screen
+}
+
+//
+// On resize, recalculate the break vars
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h1>API Design</h1>
+    </section>
+
+    <section data-markdown>
+        ## The Client should only ask for what it needs based on device capabilities
+        ### (start small and build up)
+    </section>
+
+    <section data-markdown>
+        ## Bandwidth vs Latency
+        #### (more data vs more requests)
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'cell_phone_tower.jpg')}" alt="cell phone network have high latency" />
+        <h3>Expect 100-1000ms latency</h3>
+        <aside class="notes">Note that this is especially true for Mobile users. Expect an additional overhead of 100 to 1000ms PER OBJECT REQUEST on a mobile phone</aside>
+    </section>
+
+    <section data-background="http://localhost:8080${resource(dir: 'images', file: 'balancingact.jpg')}"
+             data-background-size="60%"
+    >
+        <aside class="notes">Particularly on Mobile, it's a bit of a balancing act</br>
+            Respect mobile users' data limitations, but keep # of requests down</br>
+            Story about 4megs of JSON per request</br>   
+        </aside>
+    </section>    
+
+    <section>
+        <h2>Grails 2.3+</h2>
+        <pre>
+            <code data-trim>
+import grails.rest.*
+@Resource(uri='/books')
+class Book {
+
+    String title
+
+    static constraints = {
+        title blank:false
+    }
+}
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>But Responsive Responses? ....</h2>
+        <aside class="notes">
+            Unfortunately, to make our api calls responsive and adjust to query parameters, we'll need to still use the old style, for now.
+        </aside>
+    </section>
+    
+    <section>
+        <h1>9 Essential Programming Concepts</h1>
+    </section>
+
+    <section>
+        <h2>It's dangerous to go alone!</h2>
+        <img src="${resource(dir: 'images', file: 'js-frameworks.jpg')}" alt="JS Frameworks"/>
+
+        <aside class="notes">
+            Countless tools to help structure your front end code<br/>
+            You wouldn't write your server side code in raw Groovy, would you?<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>Some are more rigid than others</h2>
+        <img src="${resource(dir: 'images', file: 'js-order.jpg')}" alt="Order of Obfuscation"/>
+        <aside class="notes">
+            These are the 3 that I hear the most about </p>
+            In order of complexity and amount they 'hide' from you </p>
+        </aside>
+    </section>
+
+    <section>
+        <h3>These frameworks may <span class="focus-word">obfuscate</span> the following:</h3>
+        <aside class="notes">
+            hide or obfuscate; important to understand what they're doing so you can appreciate what they give you.
+        </aside>
+    </section>
+
+    <section>
+        <h2>1. Javascript is weird</h2>
+        <img src="${resource(dir: 'images', file: 'wat_grande.jpg')}" alt="wat"/>
+        <aside class="notes">
+            First up, Javascript can be a bit... odd.<br/>
+            Gary Bernhardt, CodeMash 2012,  called 'WAT'. quirks in the Ruby and Javascript languages<br/>
+            few examples: new Array(16).join("grails"-1) + ", Batman!"
+        </aside>
+    </section>
+
+    <section>
+        <h2>TODO: insert picture of Javascript: The good Parts</h2>
+    </section>
+
+    <section>
+        <h2>2. Prototypes, not classes</h2>
+        <h3>At least until ECMA 6</h3>
+        <aside class="notes">
+            Simulate single object inheritence via the prototype chain, but JS was designed to not have classes<br/>
+            Attempts are still made to force classes into it (Backbone, ECMA 6)<br/>
+            However, power in Javascript comes from composition<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>TODO: code snippet showing composition</h2>
+    </section>
+
+    <section>
+        <pre>
+            <code data-trim>
+var Note = Backbone.Models.extend({})
+//
+//    VS.
+//
+
+// use Underscore.js's extend to compose the Backbone Events
+var Note = {};
+_.extend(Note, Backbone.Events);
+            </code>
+        </pre>
+        <aside class="notes">
+            For example, to get around Backbone forcing you to extend their models, you can do something like this<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>3. Events</h2>
+        <h3><small>Async, event-driven or it's wrong</small></h3>
+    </section>
+
+    <section data-markdown>
+        ##Event Delegates vs attached listeners
+    </section>
+
+    <section>
+        <h2>4. Reflow / Repaint</h2>
+        <h3><small>We're all making video games now</small></h3>
+    </section>
+
+    <section>
+        <h2> &lt; 16ms</h2>
+        <a href="http://letsfreecongress.org/" target="_blank">Open Me in Canary</a>
+        <aside class="notes">
+            Show the "let's free congress" site, show frames and show rendering shoot above 30 frames
+        </aside>
+    </section>
+
+    <section>
+        <h2>5. Templates</h2>
+    </section>
+
+    <section>
+        <h2>6. Dom Injection</h2>
+    </section>
+
+    <section>
+        <h2>7. Views / Dom element encapsulation</h2>
+    </section>
+
+    <section>
+        <h2>8. Routes and modules</h2>
+        <aside class="notes">
+            This section started to get very large as I was putting these slides together. You'll see why<br/>
+            Had to scale back
+        </aside>
+    </section>
+
+    <section>
+        <h2>Urls</h2>
+        <aside class="notes">
+            Veins of your app<br/>Urls are forever<br/>
+        </aside>
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'js-transfer-size.jpg')}" alt="HTTP Archive: JS sizes of top 100 sites"/>
+        <p>HTTP Archive: Top 100 sites, first visit</p>
+        <aside class="notes">
+            HTTP Archive, top 100 sites, number of JS downloads plus KB<br/>
+            Numbers reflect initial visit of the url, not browsing around<br/>
+        </aside>
+    </section>
+
+    <section>
+        <h2>9. Minimum Viable View</h2>
+    </section>
+
+    <section data-transition="fade">
+        <h1>What about Robots / Spiders?</h1>
+        <h3>Oh No, My SEO!</h3>        
+    </section>
+
+    <section data-markdown>
+        ## The future will be exciting!
+    </section>
+
+    <section>
+        <h1>Thank You!</h1>
+        <h3>Questions?</h3>
+    </section>
+
+    <section>
+        <h3>Image credits</h3>
+        <small>WAT: <a href="http://www.shopify.com/technology/5370262-wat-a-funny-look-at-ruby-and-javascript-oddities">http://www.shopify.com/technology/5370262-wat-a-funny-look-at-ruby-and-javascript-oddities</a></small>
+        <small>KING JS: <a href="http://www.hutchhouse.com/blog/who-needs-flash-javascript-is-king/">http://www.hutchhouse.com/blog/who-needs-flash-javascript-is-king/</a></small>
+        <small>1000ms TTG: <a href="http://www.igvita.com/slides/2013/fluent-perfcourse.pdf">http://www.igvita.com/slides/2013/fluent-perfcourse.pdf</a></small>
+        <small>Phone and Tower: <a href="http://www.pcmag.com/article2/0,2817,2405596,00.asp" target="_blank"></a>http://www.pcmag.com/article2/0,2817,2405596,00.asp</small>
+        <small>Balancing Act: <a href="http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act" target="_blank">http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act</a></small>
+    </section>
+</body>
+</html>
