@@ -10,13 +10,24 @@ modules = {
 
         //["namespace", "zepto.min", "underscore-min", "backbone-min", "handlebars"].each { name ->
         ["namespace", "angular.min"].each { name ->
-            resource url: [dir: 'js/lib', file: name +".js"]
+            resource url: [dir: 'js/lib', file: name + ".js"], disposition: "head"
         }
 
     }
 
-    recordStore {
+    demo {
         dependsOn "libraries"
+
+        [
+                "controllers/artist",
+                // main app should be close to last in the load order
+                "app",
+                // cache depends on app, though
+                "templates/cache"
+        ].each { file ->
+            resource url: [dir: 'js/recordStore', file: file + ".js"]
+
+        }
 
 
 

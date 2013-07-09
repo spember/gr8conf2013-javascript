@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="large-12 columns panel">
+        <div class="row">
+            <div class="large-12"><h3>{{artist.name}}</h3></div>
+        </div>
+
+        <div class="row">
+            <div class="large-6 columns">
+                <p>website: <a href="{{artist.siteURL}}" target="_blank">{{artist.siteURL}}</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>HomeTown: {{artist.homeTown}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 columns"><h3>Albums ({{artist.albums}})</h3></div>
+</div>

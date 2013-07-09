@@ -341,6 +341,7 @@ _.extend(Note, Backbone.Events);
 
     <section>
         <h2>9. Minimum Viable View</h2>
+        <h3><small>Avoid &lt;body&gt;&lt;/body&gt;</small></h3>
     </section>
 
     <section data-transition="fade">

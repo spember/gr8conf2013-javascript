@@ -2,7 +2,7 @@
 <head>
     <title>Home - SinglePage-ified!</title>
     <meta name="layout" content="main"/>
-    <r:require modules="recordStore"/>
+    <r:require modules="demo"/>
 </head>
 <body>
 <g:render template="welcome"/>

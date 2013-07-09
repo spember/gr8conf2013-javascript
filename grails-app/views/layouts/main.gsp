@@ -13,7 +13,7 @@
 		<g:layoutHead/>
 		<r:layoutResources />
 	</head>
-	<body>
+	<body ng-app="recordStore">
         <div class="row header">
             <div class="large-12 columns">
                 <h2>gr8conf US RecordStore</h2>
@@ -21,7 +21,7 @@
         </div>
 
     <div class="row">
-        <div class="large-8 columns">
+        <div class="large-8 columns" ng-view>
             <g:layoutBody/>
         </div>
 

@@ -1,0 +1,8 @@
+<div class="large-12 columns">
+    <p class="panel">We have the following artists: </p>
+</div>
+<div class="row" ng-repeat='artist in artists'>
+    <div class='large-6 columns'>
+        <a href='#/artist/detail/{{artist.name}}'>{{artist.name}}</a>
+    </div>
+</div>
