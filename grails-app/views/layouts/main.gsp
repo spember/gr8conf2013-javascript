@@ -20,8 +20,8 @@
             </div>
         </div>
     <div class="row">
-        <div class="large-8 columns error-spinner">
-            <g:img dir="images" file="loadinfo.net.gif"/>
+        <div class="large-8 columns error-spinner spinner">
+            
         </div>
         <div class="large-8 columns view-container" ng-view>
             <g:layoutBody/>

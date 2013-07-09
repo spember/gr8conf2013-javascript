@@ -95,6 +95,8 @@
         ### TODO: make demo. One app is SPA, other is not. Add artificial delay
     </section>
 
+<!-- Act 2 -->
+
     <section data-transition="fade">
         <h1>Single Page Apps are the future</h1>
          <h2>If you're not doing it, you <span class="focus-word">will</span> be left behind</h2>
@@ -154,6 +156,15 @@
     </section>
 
     <section>
+        <img src="${resource(dir:'images', file: 'yin_yang3.gif')}" alt="Yin and Yang"/>
+        <aside class="notes">
+            I feel like RD and PE are like the Yin and Yang of web dev<br/>
+            Difficult to mention one without the other<br/>
+            As an aside, there's been some discussion the past month about JS, having too much of it, and PE. Be happy to talk afterwords<br/>
+        </aside>
+    </section>
+
+    <section>
         <h2>TIP: Use Modernizr to responsively adjust JS capabilities</h2>
         <pre>
             <code data-trim>
@@ -167,6 +178,9 @@ if (smallBreak) {
 // On resize, recalculate the break vars
             </code>
         </pre>
+        <aside class="notes">
+            One very useful tool for achieving this is to use Modernizr, which does all sorts of feature detection for you <br/>
+        </aside>
     </section>
 
     <section>
@@ -270,6 +284,9 @@ class Book {
 
     <section>
         <h2>TODO: insert picture of Javascript: The good Parts</h2>
+        <aside class="notes">
+            It's the type of language where someone needed to write this book to make people feel better.<br/>
+        </aside>
     </section>
 
     <section>
@@ -332,6 +349,37 @@ _.extend(Note, Backbone.Events);
 
     <section>
         <h2>6. Dom Injection</h2>
+        <aside class="notes">
+            Connects back to reflow / repaint<br/>
+        </aside>
+    </section>
+
+    <section>
+        <pre>
+            <code>
+                var $content = $("#content"),
+                    data = ["item1", "item2", "item3"],
+                    pos = data.length;
+                //
+                // Not Great
+                //
+                while(pos--) {
+                    $content.prepend(data[pos]);
+                }
+
+                //
+                // better
+                //
+                var $sibling = $content.prev(),
+                    pos = data.length;
+                $content.remove();
+                while(pos--) {
+                    $content.prepend(data[pos]);
+                }
+                $content.insertAfter($sibling);
+
+            </code>
+        </pre>
     </section>
 
     <section>
@@ -367,9 +415,26 @@ _.extend(Note, Backbone.Events);
         <h3><small>Avoid &lt;body&gt;&lt;/body&gt;</small></h3>
     </section>
 
+    <section>
+        <img src="" alt="Twitter Logo"/>
+        <aside class="notes">
+            Tell Twitter Story <br/>
+            I feel like the answer is somewhere in between<br/>
+        </aside>
+    </section>
+
+    <section data-markdown>
+        ## send useful HTML on initial Request
+        ## Avoid multiple requests per user action
+    </section>
+
     <section data-transition="fade">
         <h1>What about Robots / Spiders?</h1>
-        <h3>Oh No, My SEO!</h3>        
+        <h3>Oh No, My SEO!</h3>
+
+        <aside class="notes">
+
+        </aside>
     </section>
 
     <section data-markdown>
@@ -388,6 +453,7 @@ _.extend(Note, Backbone.Events);
         <small>1000ms TTG: <a href="http://www.igvita.com/slides/2013/fluent-perfcourse.pdf">http://www.igvita.com/slides/2013/fluent-perfcourse.pdf</a></small>
         <small>Phone and Tower: <a href="http://www.pcmag.com/article2/0,2817,2405596,00.asp" target="_blank"></a>http://www.pcmag.com/article2/0,2817,2405596,00.asp</small>
         <small>Balancing Act: <a href="http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act" target="_blank">http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act</a></small>
+        <small>Yin / Yang: <a target="_blank" href="http://bodydivineyoga.files.wordpress.com/">http://bodydivineyoga.files.wordpress.com/</a></small>
     </section>
 </body>
 </html>
