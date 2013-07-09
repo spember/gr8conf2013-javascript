@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-show="artist.name">
     <div class="large-12 columns panel">
         <div class="row">
             <div class="large-12"><h3>{{artist.name}}</h3></div>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" ng-show="albums.length">
     <div class="large-12 columns"><h3>Albums ({{albums.length}})</h3></div>
 </div>
 

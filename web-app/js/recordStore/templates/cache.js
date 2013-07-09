@@ -22,12 +22,13 @@ angular.module("recordStore").run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "\n" +
+    "<!--\n" +
     "<div class=\"row\" ng-hide=\"album\">\n" +
     "    <div class=\"large-12 columns panel\">\n" +
     "        <h3>Unfortunately, we do not have that album</h3>\n" +
     "    </div>\n" +
-    "</div>\n"
+    "</div>\n" +
+    "-->\n"
   );
 
   $templateCache.put("/web-app/js/recordStore/templates/ngs/album/list.ng",
@@ -40,14 +41,16 @@ angular.module("recordStore").run(["$templateCache", function($templateCache) {
     "   </div>\n" +
     "</div>\n" +
     "\n" +
+    "<!--\n" +
     "<div class=\"large-12 columns\"  ng-hide=\"albums.length\">\n" +
     "    <p class=\"panel\">No albums found</p>\n" +
     "</div>\n" +
+    "-->\n" +
     "\n"
   );
 
   $templateCache.put("/web-app/js/recordStore/templates/ngs/artist/detail.ng",
-    "<div class=\"row\">\n" +
+    "<div class=\"row\" ng-show=\"artist.name\">\n" +
     "    <div class=\"large-12 columns panel\">\n" +
     "        <div class=\"row\">\n" +
     "            <div class=\"large-12\"><h3>{{artist.name}}</h3></div>\n" +
@@ -66,7 +69,7 @@ angular.module("recordStore").run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"row\">\n" +
+    "<div class=\"row\" ng-show=\"albums.length\">\n" +
     "    <div class=\"large-12 columns\"><h3>Albums ({{albums.length}})</h3></div>\n" +
     "</div>\n" +
     "\n" +
@@ -78,7 +81,7 @@ angular.module("recordStore").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("/web-app/js/recordStore/templates/ngs/artist/list.ng",
-    "<div class=\"large-12 columns\">\n" +
+    "<div class=\"large-12 columns\" ng-show=\"artists.length\">\n" +
     "    <p class=\"panel\">We have the following artists: </p>\n" +
     "</div>\n" +
     "<div class=\"row\" ng-repeat='artist in artists'>\n" +

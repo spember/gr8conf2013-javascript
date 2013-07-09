@@ -13,6 +13,8 @@ modules = {
             resource url: [dir: 'js/lib', file: name + ".js"], disposition: "head"
         }
 
+        resource url: [dir: "js/lib", file: "zepto.min.js"]
+
     }
 
     demo {
@@ -21,6 +23,7 @@ modules = {
         [
                 "controllers/artist",
                 "controllers/album",
+                "services",
                 // main app should be close to last in the load order
                 "app",
                 // cache depends on app, though
@@ -29,8 +32,6 @@ modules = {
             resource url: [dir: 'js/recordStore', file: file + ".js"]
 
         }
-
-
 
     }
 

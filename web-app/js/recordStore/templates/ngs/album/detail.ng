@@ -19,9 +19,10 @@
     </div>
 </div>
 
-
+<!--
 <div class="row" ng-hide="album">
     <div class="large-12 columns panel">
         <h3>Unfortunately, we do not have that album</h3>
     </div>
 </div>
+-->

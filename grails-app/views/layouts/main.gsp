@@ -19,9 +19,11 @@
                 <h2>gr8conf US RecordStore</h2>
             </div>
         </div>
-
     <div class="row">
-        <div class="large-8 columns" ng-view>
+        <div class="large-8 columns error-spinner">
+            <g:img dir="images" file="loadinfo.net.gif"/>
+        </div>
+        <div class="large-8 columns view-container" ng-view>
             <g:layoutBody/>
         </div>
 

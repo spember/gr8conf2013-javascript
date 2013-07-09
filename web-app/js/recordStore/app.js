@@ -1,5 +1,6 @@
 /*global angular, rs */
 angular.module("recordStore", [])
+    .service("httpSpinner", rs.services.httpSpinner)
     .config(['$routeProvider', function($routeProvider) {
         "use strict";
 

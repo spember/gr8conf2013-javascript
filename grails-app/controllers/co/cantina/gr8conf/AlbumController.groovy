@@ -7,8 +7,8 @@ class AlbumController {
     def index() {}
 
     def list() {
+        Thread.sleep(1500)
         List albums = Album.list(fetch:[artist:"eager"])
-        print albums
         if (request.xhr) {
             render albums as JSON
             return true

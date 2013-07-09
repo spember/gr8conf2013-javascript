@@ -7,7 +7,9 @@
    </div>
 </div>
 
+<!--
 <div class="large-12 columns"  ng-hide="albums.length">
     <p class="panel">No albums found</p>
 </div>
+-->
 

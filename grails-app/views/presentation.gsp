@@ -70,13 +70,19 @@
     </section>
 
 
-    <section data-markdown>
-        ## TODO: MVCMV diagram, showing two apps separated by an API call
+    <section>
+        <p>TODO: MVCMV diagram, showing two apps separated by an API call</p>
+        <aside class="notes">
+        In fact, create two nearly distinct applications<br/>
+        </aside>
     </section>
 
     <section>
         <p>TODO: IMG of Developer tools</p>
-        <aside class="notes">Take hold of them!</aside>
+        <aside class="notes">
+            It's only recently become viable<br/>
+            Take hold of them!</br>
+        </aside>
     </section>
 
     <section data-markdown>
@@ -114,6 +120,10 @@
 
     <section data-transition="fade">
         <h1>Foundations of a SPA and... Why <span class="focus-word">Grails?</span></h1>
+        <aside class="notes">
+            Hopefully by now your interest is at least vaguely piqued<br/>
+
+        </aside>
     </section>
 
     <section>
@@ -133,6 +143,14 @@
 
     <section>
         <h2>Dynamically load / unload Interactive features based on device capabilities</h2>
+    </section>
+
+    <section>
+        <h2>... AKA Progressive Enhancement</h2>
+        <aside class="notes">
+            Another term for this philosophy is "Progressive enhancement"<br/>
+            Although we're focused on the JS end<br/>
+        </aside>
     </section>
 
     <section>
@@ -159,6 +177,11 @@ if (smallBreak) {
         ## The Client should only ask for what it needs based on device capabilities
         ### (start small and build up)
     </section>
+
+    <section data-markdown>
+        ## AKA Progressive API Enhancement
+    </section>
+
 
     <section data-markdown>
         ## Bandwidth vs Latency

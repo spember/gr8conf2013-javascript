@@ -6,7 +6,7 @@ class ArtistController {
 
     def list() {
 
-        Thread.sleep(1000)
+        Thread.sleep(1500)
 
         if (request.xhr) {
             render Artist.list() as JSON
@@ -16,6 +16,7 @@ class ArtistController {
     }
 
     def detail() {
+        Thread.sleep(1500)
         Artist artist = Artist.findByName(params.id.toString())
         List albums = Album.findAllByArtist(artist, [sort: "releaseYear"])
         def data = [artist: artist, albums: albums]

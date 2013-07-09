@@ -1,4 +1,4 @@
-<div class="large-12 columns">
+<div class="large-12 columns" ng-show="artists.length">
     <p class="panel">We have the following artists: </p>
 </div>
 <div class="row" ng-repeat='artist in artists'>

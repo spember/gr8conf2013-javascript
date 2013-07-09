@@ -4,32 +4,21 @@ namespace("rs.controllers.album");
     'use strict';
 
     /**
-     * Responsible for querying the basic listing of the artists
+     * Responsible for querying the basic listing of the albums
      * @param $scope
      * @param $http
      */
-    rs.controllers.album.list = function($scope, $http) {
-        $http({
-            url: "/album/list",
-            method: "GET",
-            headers : { 'Content-Type':'application/json; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }
-        }).success(function(data) {
-                $scope.albums = data;
-            });
+    rs.controllers.album.list = function($scope, httpSpinner) {
+        httpSpinner.async("/album/list").then(function (data) {
+           $scope.albums = data;
+        });
     };
 
-    rs.controllers.album.detail = function($scope, $routeParams, $http) {
-        console.log("id = " + $routeParams.id);
-        $http({
-            url: "/album/detail/" + $routeParams.id,
-            method: "GET",
-            headers : { 'Content-Type':'application/json; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }
-        })
-            .success(function(data) {
-                $scope.artist = data.artist;
-                $scope.album = data.album;
-            });
-
+    rs.controllers.album.detail = function($scope, $routeParams, httpSpinner) {
+        httpSpinner.async("/album/detail/" + $routeParams.id).then(function (data){
+            $scope.artist = data.artist;
+            $scope.album = data.album;
+        });
     };
 
 })(window.rs);
