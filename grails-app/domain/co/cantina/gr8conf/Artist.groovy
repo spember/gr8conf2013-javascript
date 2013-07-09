@@ -16,10 +16,6 @@ class Artist {
         description nullable: true, blank:true, maxSize: 4096
     }
 
-    static mapping = {
-        albums lazy: false
-    }
-
     public String toString() {
         "$name"
     }

@@ -1,20 +1,80 @@
 angular.module("recordStore").run(["$templateCache", function($templateCache) {
 
+  $templateCache.put("/web-app/js/recordStore/templates/ngs/album/detail.ng",
+    "\n" +
+    "<div class=\"row\" ng-show=\"album.name\">\n" +
+    "    <div class=\"large-12 columns panel\">\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"large-12 columns\"><h3>{{album.name}}</h3></div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"large-6 columns\">\n" +
+    "                <p>Running time: {{album.runningTime}}</p>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div class=\"large-6 columns\">\n" +
+    "\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "<div class=\"row\" ng-hide=\"album\">\n" +
+    "    <div class=\"large-12 columns panel\">\n" +
+    "        <h3>Unfortunately, we do not have that album</h3>\n" +
+    "    </div>\n" +
+    "</div>\n"
+  );
+
   $templateCache.put("/web-app/js/recordStore/templates/ngs/album/list.ng",
-    "<div class=\"large-12 columns\">\n" +
+    "<div class=\"large-12 columns\" ng-show=\"albums.length\">\n" +
     "   <p class=\"panel\">We have the following albums: </p>\n" +
     "</div>\n" +
     "<div class=\"row\" ng-repeat='album in albums'>\n" +
     "   <div class='large-6 columns'>\n" +
-    "        <a href='#/album/{{album.name}}'>{{album.name}}</a>\n" +
+    "        <a href='#/album/detail/{{album.id}}'>{{album.name}}</a>\n" +
     "   </div>\n" +
-    "</div>"
+    "</div>\n" +
+    "\n" +
+    "<div class=\"large-12 columns\"  ng-hide=\"albums.length\">\n" +
+    "    <p class=\"panel\">No albums found</p>\n" +
+    "</div>\n" +
+    "\n"
   );
 
   $templateCache.put("/web-app/js/recordStore/templates/ngs/artist/detail.ng",
-    "<row class=\"large-12 columns\">\n" +
-    "    Blah\n" +
-    "</row>"
+    "<div class=\"row\">\n" +
+    "    <div class=\"large-12 columns panel\">\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"large-12\"><h3>{{artist.name}}</h3></div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"large-6 columns\">\n" +
+    "                <p>website: <a href=\"{{artist.siteURL}}\" target=\"_blank\">{{artist.siteURL}}</a></p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"large-6 columns\">\n" +
+    "                <p>HomeTown: {{artist.homeTown}}</p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"row\">\n" +
+    "    <div class=\"large-12 columns\"><h3>Albums ({{albums.length}})</h3></div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"row\" ng-repeat=\"album in albums\">\n" +
+    "    <div class=\"large-12 columns\">\n" +
+    "        <p><a href=\"#/album/detail/{{album.id}}\">{{album.name}}</a></p>\n" +
+    "    </div>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("/web-app/js/recordStore/templates/ngs/artist/list.ng",

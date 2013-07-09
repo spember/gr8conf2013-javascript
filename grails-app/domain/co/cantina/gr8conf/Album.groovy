@@ -18,10 +18,6 @@ class Album {
         runningTime min: 0
     }
 
-    static mapping = {
-        artist lazy: false
-    }
-
     public String displayRunningTime() {
         "${Math.round(runningTime / 60)}:${runningTime % 60}"
     }

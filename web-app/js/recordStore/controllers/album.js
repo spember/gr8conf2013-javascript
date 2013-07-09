@@ -1,5 +1,5 @@
 /*global namespace, rs, console */
-namespace("rs.controllers.artist");
+namespace("rs.controllers.album");
 (function(rs) {
     'use strict';
 
@@ -8,26 +8,26 @@ namespace("rs.controllers.artist");
      * @param $scope
      * @param $http
      */
-    rs.controllers.artist.list = function($scope, $http) {
+    rs.controllers.album.list = function($scope, $http) {
         $http({
-            url: "/artist/list",
+            url: "/album/list",
             method: "GET",
             headers : { 'Content-Type':'application/json; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }
         }).success(function(data) {
-                $scope.artists = data;
+                $scope.albums = data;
             });
     };
 
-    rs.controllers.artist.detail = function($scope, $routeParams, $http) {
+    rs.controllers.album.detail = function($scope, $routeParams, $http) {
         console.log("id = " + $routeParams.id);
         $http({
-            url: "/artist/detail/" + $routeParams.id,
+            url: "/album/detail/" + $routeParams.id,
             method: "GET",
             headers : { 'Content-Type':'application/json; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }
         })
             .success(function(data) {
                 $scope.artist = data.artist;
-                $scope.albums = data.albums;
+                $scope.album = data.album;
             });
 
     };

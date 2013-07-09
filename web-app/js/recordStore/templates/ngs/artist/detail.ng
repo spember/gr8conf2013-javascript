@@ -18,5 +18,11 @@
 </div>
 
 <div class="row">
-    <div class="large-12 columns"><h3>Albums ({{artist.albums}})</h3></div>
+    <div class="large-12 columns"><h3>Albums ({{albums.length}})</h3></div>
+</div>
+
+<div class="row" ng-repeat="album in albums">
+    <div class="large-12 columns">
+        <p><a href="#/album/detail/{{album.id}}">{{album.name}}</a></p>
+    </div>
 </div>

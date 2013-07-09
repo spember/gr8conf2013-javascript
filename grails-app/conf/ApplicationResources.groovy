@@ -20,6 +20,7 @@ modules = {
 
         [
                 "controllers/artist",
+                "controllers/album",
                 // main app should be close to last in the load order
                 "app",
                 // cache depends on app, though

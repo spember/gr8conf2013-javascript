@@ -5,7 +5,7 @@ import grails.converters.JSON
 class ArtistController {
 
     def list() {
-        println "Sleeping!"
+
         Thread.sleep(1000)
 
         if (request.xhr) {
@@ -18,11 +18,11 @@ class ArtistController {
     def detail() {
         Artist artist = Artist.findByName(params.id.toString())
         List albums = Album.findAllByArtist(artist, [sort: "releaseYear"])
-        data = [artist: artist, albums: albums]
+        def data = [artist: artist, albums: albums]
         if (request.xhr) {
-
+            render data as JSON
         } else {
-
+            data
         }
     }
 }

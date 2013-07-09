@@ -12,7 +12,7 @@
             </div>
 
             <div class="large-6 columns">
-                <a class="button" href="#">Albums</a>
+                <g:link controller="album" action="list" class="button">Albums</g:link>
             </div>
         </div>
 

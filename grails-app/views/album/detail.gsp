@@ -25,9 +25,6 @@
 
         </div>
     </div>
-
-
-
 </g:if>
 <g:else>
     <div class="row">
