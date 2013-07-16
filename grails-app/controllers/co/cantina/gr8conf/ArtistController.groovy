@@ -12,7 +12,9 @@ class ArtistController {
             render Artist.list() as JSON
             return true
         }
+
         [artists: Artist.list()]
+
     }
 
     def detail() {

@@ -1,3 +1,28 @@
-.focus-word { 
-	color: rgb(0,174,216);
+.reveal h2 {
+	margin-bottom: 1em;
 }
+
+.focus-word { 
+	color: #00aed8;
+}
+
+.focus-word-inverse {
+	color: rgb(255,82,0);
+}
+
+.reveal section img {
+	border: none;
+	background: none;
+	box-shadow: none;	
+}
+.reveal section .multi-pic {
+	width: 8em;
+}
+
+.reveal .section-card a:not(.image):hover {
+	color: rgb(255,82,0);
+}
+.reveal .section-card a:not(.image) {
+	color: rgb(255, 82, 0);
+}
+

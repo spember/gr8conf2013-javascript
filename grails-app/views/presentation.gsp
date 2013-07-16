@@ -6,41 +6,48 @@
 </head>
 <body>
 
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8" class="section-card">
         <h1>Fundamentals of Responsive Javascript Single Page Web Applications</h1>
         <p>
             <small>Steve Pember / <a href="http://twitter.com/svpember">@svpember</a></small>
         </p>
+        <img src="${resource(dir: 'images', file: 'cantina-logo-white.png')}" alt="Cantina">
     </section>
 
-    <section>
-        <h3>TODO: img of web development</h3>
+    <section data-background="http://localhost:8080${resource(dir: 'images', file: 'js-logo.png')}"
+             data-background-size="55%">
         <aside class="notes">
-        Let's talk about web development.
+        Let's talk about javascript.
+        </aside>
+    </section>
+
+    <section data-background="#00aed8">
+        <h2>A Web Application's Goal is provide an Engaging User Experience</h2>
+        <aside class="notes">
+            Engaging, memorable... Fun!
         </aside>
     </section>
 
     <section>
-        <h2>A Web Application's Goal is an Engaging User Experience</h2>
-    </section>
-
-    <section>
-        <img src="${resource(dir: 'images', file: 'js-king.jpg')}" alt="JS is the King">
+        <img src="${resource(dir: 'images', file: 'js-king.jpg')}" alt="JS is the King"/>
         <aside class="notes">
             JS is by far the better system for building more engaging experiences<br/>
-            - it is EATING the rest of the world. Flash, Flex, and it's ilk - things we used to use a couple years ago - have been marginalized by this quirky little language.<br/>
+            - it is CRUSHING any competitors. Flash, Flex, and it's ilk - things we used to use a couple years ago - have been marginalized by this quirky little language.<br/>
         </aside>
     </section>
 
     <section>
         <h2>What makes an Engaging Experience?</h2>
         <ul>
-            <li>Content</li>
-            <li>Design</li>
-            <li class="fragment grow">Performance</li>
+            <li><h3>Content</h3></li>
+            <li><h3>Design</h3></li>
+            <li class="fragment grow"><h3>Performance</h3></li>
         </ul>
 
         <aside class="notes">
+            Useful content, eye-catching design, tight/fast performance<br/><br/>
+            "CONTENT IS KING" - Bill Gates<br/>
+
             I'm assuming everyone's primary occupation is that of a developer or engineer. Does anyone here primarily design things for work?<br/>
             IF SO: I hope you're not a pixel-perfectionist. Assume that your design will flow
         </aside>
@@ -58,7 +65,7 @@
     </section>
 
     <section>
-        <h1>Control What you Can</h1>
+        <h2>Control What you Can</h2>
     </section>
 
     <section>
@@ -89,15 +96,22 @@
     <section>
         <h2>Goal: Update Page content based on user input</h2>
         <h3 class="fragment fade-in">Could we just use a sprinkling of AJAX / PJAX?</h3>
+        
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'disapproval.jpg')}" alt="I disapprove">
         <aside class="notes">
+            No....; it'll get out of hand quickly, I assure you.<br/>
             So how do we add an engaging user experience while minimizing data transfers?<br/>
         </aside>
     </section>
 
-    <section><img src="${resource(dir: 'images', file: 'disapproval.jpg')}" alt="I disapprove"></section>
-
     <section>
         <h2>You should spend at least as much engineering on your Front End as your Back End</h2>
+        <aside class="notes">
+            *slow*
+        </aside>
     </section>
 
 
@@ -130,9 +144,9 @@
 
 <!-- Act 2 -->
 
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8">
         <h1>Single Page Apps are the future</h1>
-         <h2>If you're not doing it, you <span class="focus-word">will</span> be left behind</h2>
+         <h2>If you're not doing it, you <span class="focus-word-inverse">will</span> be left behind</h2>
         <aside class="notes">
             Your competitors are going to be doing it
         </aside>
@@ -154,7 +168,7 @@
         </aside>
     </section>
 
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8">
         <h1>SPA Fundamentals</h1>
         <aside class="notes">
             Hopefully by now your interest is at least vaguely piqued<br/>
@@ -165,12 +179,14 @@
 
     <section>
         <h1>?</h1>
-        <img src="${resource(dir:'images', file: 'grails-icon.png')}" alt="Grails">
+        <img src="${resource(dir:'images', file: 'grails-icon.png')}" alt="Grails"/>
         <aside class="notes">and why Grails is a great fit, and will continue to be a great fit as we transition to 3.0<br/></aside>
     </section>
 
     <section>
-        <h2>TODO: GORM image, plugins site with arrow pointing to count</h2>
+        <img src="${resource(dir:'images', file: 'persistence.jpeg')}" alt="Gorm" class="multi-pic"/>
+        <img src="${resource(dir:'images', file: 'security.gif')}" alt="Security" class="multi-pic"/>
+        <img src="${resource(dir:'images', file: 'plugins.jpg')}" alt="Plugins" class="multi-pic"/>
         <aside class="notes">
             Incredibly strong on the server side, which is exactly what we need for this sort of thing<br/>
             Aside from the usual reasons, I highlight Security, Persistence, Plugins<br/>
@@ -179,23 +195,26 @@
         </aside>
     </section>
 
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8">
         <h1>Responsive Applications</h1>
     </section>
 
     <section>
         <h2>Responsive Design</h2>
         <ul>
-            <li>Flexible Grids</li>
-            <li>Flexible Images</li>
-            <li>Media Queries</li>            
-            <li class="fragment fade-in">Responsive Architecture</li>
-            <li class="fragment fade-in">Responsive Responses</li>
+            <li><h3>Flexible Grids</h3></li>
+            <li><h3>Flexible Images</h3></li>
+            <li><h3>Media Queries</h3></li>            
+            <li class="fragment fade-in"><h3>Responsive Architecture</h3></li>
+            <li class="fragment fade-in"><h3>Responsive Responses</h3></li>
         </ul>
     </section>
 
     <section>
         <h2>Dynamically load / unload Interactive features based on device capabilities</h2>
+        <aside class="notes">
+            Especially true on Mobile
+        </aside>
     </section>
 
     <section>
@@ -219,7 +238,7 @@
     <section>
         <h2>TIP: Use Modernizr to responsively adjust JS capabilities</h2>
         <pre>
-            <code data-trim>
+            <code data-trim class="javascript">
 var smallBreak = Modernizr.mq("only all and (max-width: 400px)"));
 //... later on ...
 if (smallBreak) {
@@ -235,8 +254,15 @@ if (smallBreak) {
         </aside>
     </section>
 
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8">
         <h1>API Design</h1>
+
+        <aside class="notes">
+            There's a presentation going on I believe right now on this very subject.<br/>
+            Grails makes a decent platform for driving your api, especially for querying.<br/><br/>
+            easy Caching, easy usage of alt data stores, renderers, etc.
+
+        </aside>
     </section>
 
     <section data-markdown>
@@ -248,8 +274,21 @@ if (smallBreak) {
         ## AKA Progressive API Enhancement
     </section>
 
-    <section data-markdown>
-        ## TODO: EXAMPLE!
+    <section>
+        <pre><code>
+//
+// A simple example. Build up a map and render it as opposed to a regular DO
+//            
+Author author = Author.get(params.id)
+Map json = ["name": author.name, "id": author.id, bookCount: Book.countByAuthor(author)]
+if (params.addBbooks) {
+    json["books"] = Book.findAllByAuthor(author).collect {book ->
+        book.toJSON() //perhaps a .toJson() method for convenience on a DO?
+    }             
+}
+
+render json as JSON
+        </code></pre>
     </section>
 
 
@@ -261,7 +300,9 @@ if (smallBreak) {
     <section>
         <img src="${resource(dir: 'images', file: 'cell_phone_tower.jpg')}" alt="cell phone network have high latency" />
         <h3>Expect 100-1000ms latency</h3>
-        <aside class="notes">Note that this is especially true for Mobile users. Expect an additional overhead of 100 to 1000ms PER OBJECT REQUEST on a mobile phone</aside>
+        <aside class="notes">Note that this is especially true for Mobile users. Expect an additional overhead of 100 to 1000ms PER OBJECT REQUEST on a mobile phone<br/><br/>
+        Virgin Mobile FAQ: 500ms
+        </aside>
     </section>
 
     <section data-background="http://localhost:8080${resource(dir: 'images', file: 'balancingact.jpg')}"
@@ -298,7 +339,7 @@ class Book {
         </aside>
     </section>
     
-    <section data-transition="fade">
+    <section data-transition="fade" data-background="#00aed8">
         <h1>9 Essential Programming Concepts</h1>
         <aside class="notes">
             Intro!
@@ -365,7 +406,7 @@ class Book {
 
     <section>
         <pre>
-            <code data-trim>
+            <code data-trim class="javascript">
 var Note = Backbone.Models.extend({})
 //
 //    VS.
@@ -386,12 +427,20 @@ _.extend(Note, Backbone.Events);
         <h3><small>Async, event-driven or it's wrong</small></h3>
     </section>
 
-    <section data-markdown>
-        ##Event Delegates vs attached listeners
+    <section>
+        <h2>Event Delegates vs attached listeners</h2>
+        <aside class="notes">
+            
+        </aside>
     </section>
 
-    <section data-markdown>
-        ## TODO: delegate example
+    <section>
+        <pre><code class="javascript">
+$("table").on("click", "td", function() {
+  $(this).toggleClass("chosen");
+});
+// remember to 'off' when all done!
+        </code></pre>
     </section>
 
     <section>
@@ -400,8 +449,8 @@ _.extend(Note, Backbone.Events);
     </section>
 
     <section>
-        <h2> Reflow:  TODO</h2>
-        <h2> Repaint: </h2>
+        <h2> Reflow:  Changes involving visibility / visuals</h2>
+        <h2> Repaint: Changes involving structure, layout, height, etc.</h2>
     </section>
 
     <section>
@@ -417,7 +466,27 @@ _.extend(Note, Backbone.Events);
     </section>
 
     <section>
-        <h2>TODO: Template example</h2>
+        <pre>
+            <code data-trim class="javascript">
+var source = "<h2>Hello, {{name}}!</h2><h3>Hopefully, you are " +
+    "<span class='focus-word'>{{mood}}</span> this.</h3>";
+
+var template = Handlebars.compile(source); // this step can be done well before hand
+
+someHttpPromise.then(function(apiData){
+    //sample data: "{'name': 'gr8conf', 'mood': 'enjoying'}"
+    var markup = template(apiData);
+    //insert template-generated markup somewhere
+    $("section.present").append(markup);    
+});,
+ 
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Hello, gr8conf</h2>
+        <h3>Hopefully, you are <span class="focus-word">enjoying</span> this.</h3>
     </section>
 
     <section><h2>Warning: Template Compliation time, and ...</h2></section>
@@ -431,7 +500,7 @@ _.extend(Note, Backbone.Events);
 
     <section>
         <pre>
-            <code>
+            <code >
                 var $content = $("#content"),
                     data = ["item1", "item2", "item3"],
                     pos = data.length;
@@ -477,28 +546,66 @@ _.extend(Note, Backbone.Events);
     </section>
 
     <section>
-        <img src="${resource(dir: 'images', file: 'js-transfer-size.jpg')}" alt="HTTP Archive: JS sizes of top 100 sites"/>
-        <p>HTTP Archive: Top 100 sites, first visit</p>
+        <h2>Javascript was designed to not care about memory usage</h2>
+        <h3>But <span class="focus-word">you</span> need to</h3>
         <aside class="notes">
+            Designers didn't want you to worry about it<br/>
+            Memory will likely be your bottleneck, *especially* for mobile!<br/>
+        </aside>
+    </section>
+
+    <section>
+        <a href="http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/" target="_blank"><img src="${resource(dir: 'images', file: 'garbage-man.jpg')}" alt="Garbage Collector"></a>
+        <aside class="notes">
+            Cannot force the garbage collector to work, can only get things ready for it.<br/>
+            USE DELETE often<br/>
+            Image is a link to a Great article on why mobile apps tend to be slow. Highlights MEMORY<br/>
+        </aside>
+
+    </section>
+
+    <section>
+        <img src="${resource(dir: 'images', file: 'js-transfer-size.jpg')}" alt="HTTP Archive: JS sizes of top 100 sites"/>
+        <h3><small>HTTP Archive: Top 100 sites, first visit</small></h3>
+        <aside class="notes">
+            Problem steadily getting worse<br/>
             HTTP Archive, top 100 sites, number of JS downloads plus KB<br/>
             Numbers reflect initial visit of the url, not browsing around<br/>
         </aside>
     </section>
 
     <section>
+        <h2>Break up your App into modules</h2>
+    </section>
+
+    <section>
         <h2>Urls Matter</h2>
+        <h3>Load / Unload modules based on current Route</h3>
         <aside class="notes">
             Veins of your app<br/>Urls are forever<br/>
+            define some sort of base module which contains rudiments of your app and knows to load or unload modules based on route<br/>
+            <br/>Creating a Multi, single page app!<br/>
+        </aside>
+    </section>
+
+    <section>
+        <img src="${resource(dir:'images', file:'chrome-heap-tool.jpg')}" alt="Chrome dev tools heap"/>
+        <aside class="notes">
+            This bad boy should be your best friend.
         </aside>
     </section>
 
     <section>
         <h2>9. Minimum Viable View</h2>
         <h3><small>Avoid &lt;body&gt;&lt;/body&gt;</small></h3>
+        <aside class="notes">
+            Still need to send something initially to the browser<br/>
+        </aside>
     </section>
 
-    <section>
-        <img src="" alt="Twitter Logo"/>
+    <section data-background="http://localhost:8080${resource(dir: 'images', file: 'twitter-logo.jpg')}"
+             data-background-size="75%">
+        
         <aside class="notes">
             Tell Twitter Story <br/>
             I feel like the answer is somewhere in between<br/>
@@ -510,7 +617,13 @@ _.extend(Note, Backbone.Events);
         ## Avoid multiple requests per user action
     </section>
 
-    <section><h2>TODO: Phew image</h2></section>
+    <section>
+        <img src="${resource(dir:'images', file:'stephen-colbert-wipes-sweat.jpg')}" alt="Phew"/>
+        <aside class="notes">
+            That was quite a bit, I know<br/><br/>
+            No chance to talk about build process, deployment, performance, testing<br/> WOULD LOVE TO TALK ABOUT THEM LATER!<br/>
+        </aside>
+    </section>
 
     <section data-transition="fade">
         <h1>What about Robots / Spiders?</h1>
@@ -522,15 +635,16 @@ _.extend(Note, Backbone.Events);
     </section>
 
     <section>
-        <h2>Todo: Slide discussing page speed affecting google rankings</h2>
+        <h3>Like us, our users place a lot of value in speed — that's why we've decided to take site speed into account in our search rankings</h3>
+        <h3><a href="http://googlewebmastercentral.blogspot.com/2010/04/using-site-speed-in-web-search-ranking.html">-Google</a></h3>
     </section>
 
     <section data-markdown>
         ## The future will be exciting!
     </section>
 
-    <section>
-        <img src="${resource(dir: 'images', file: 'js-logo.png')}" alt="js logo"/>
+    <section <section data-background="http://localhost:8080${resource(dir: 'images', file: 'js-logo.png')}"
+             data-background-size="55%">
         <aside class="notes">
             ... and there's going to be a lot of Javascript in it
         </aside>
@@ -550,7 +664,10 @@ _.extend(Note, Backbone.Events);
         <small>Balancing Act: <a href="http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act" target="_blank">http://www.govloop.com/profiles/blogs/next-four-years-managing-a-balancing-act</a></small>
         <small>Yin / Yang: <a target="_blank" href="http://bodydivineyoga.files.wordpress.com/">http://bodydivineyoga.files.wordpress.com/</a></small>
         <small>JS, good parts: <a href="http://oreilly.com/" target="_blank">http://oreilly.com/</a></small>
-        <small>Rage/Disapproval Face<a href="http://knowyourmeme.com/" target="_blank">http://knowyourmeme.com/</a></small>
+        <small>Rage/Disapproval Face: <a href="http://knowyourmeme.com/" target="_blank">http://knowyourmeme.com/</a></small>
+        <small>Colbert Sweat Wipe: <a href="http://www.nofactzone.net/" target="_blank"></a>http://www.nofactzone.net/</small>
+        <small>Plugin Icon: <a href="http://iconify.it/" target="_blank">http://iconify.it/</a></small>
+        <small>Scroll: <a href="http://www.roblox.com/" target="_blank">http://www.roblox.com/</a></small>
     </section>
 </body>
 </html>
