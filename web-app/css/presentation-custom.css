@@ -1,13 +1,16 @@
 .reveal h2 {
 	margin-bottom: 1em;
 }
+.reveal h2.inverse {
+	color: #00aed8;
+}
 
 .focus-word { 
 	color: #00aed8;
 }
 
 .focus-word-inverse {
-	color: rgb(255,82,0);
+	color: #FBE66E;
 }
 
 .reveal section img {
@@ -20,9 +23,9 @@
 }
 
 .reveal .section-card a:not(.image):hover {
-	color: rgb(255,82,0);
+	color: #FBE66E;
 }
 .reveal .section-card a:not(.image) {
-	color: rgb(255, 82, 0);
+	color: #FBE66E;
 }
 

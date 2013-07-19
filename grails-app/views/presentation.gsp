@@ -8,10 +8,11 @@
 
     <section data-transition="fade" data-background="#00aed8" class="section-card">
         <h1>Fundamentals of Responsive Javascript Single Page Web Applications</h1>
-        <p>
-            <small>Steve Pember / <a href="http://twitter.com/svpember">@svpember</a></small>
-        </p>
         <img src="${resource(dir: 'images', file: 'cantina-logo-white.png')}" alt="Cantina">
+        <p>
+            Steve Pember / <a href="http://twitter.com/svpember">@svpember</a>
+        </p>
+        
     </section>
 
     <section data-background="http://localhost:8080${resource(dir: 'images', file: 'js-logo.png')}"
@@ -53,7 +54,7 @@
         </aside>
     </section>
 
-    <section id="ttg">
+    <section id="ttg" data-background="#fff">
         <img src="${resource(dir: 'images', file: '1000_ttg.jpg')}" alt="Time to Glass: 1000ms"/>
         <aside class="notes">
             Has anyone heard of the 1000ms Time to Glass challenge?<br/>
@@ -72,6 +73,7 @@
         <h2>Triggering a full page refresh is <span class="focus-word">horrible</span> UX</h2>
         <aside class="notes">
             Triggering a full page refresh is one of the slowest things you can do for a user experience<br/>
+            Your code could be great, but having bad UX really sours the experience<br/>
         </aside>
     </section>
 
@@ -99,7 +101,7 @@
         
     </section>
 
-    <section>
+    <section data-background="#fff">
         <img src="${resource(dir: 'images', file: 'disapproval.jpg')}" alt="I disapprove">
         <aside class="notes">
             No....; it'll get out of hand quickly, I assure you.<br/>
@@ -183,8 +185,8 @@
         <aside class="notes">and why Grails is a great fit, and will continue to be a great fit as we transition to 3.0<br/></aside>
     </section>
 
-    <section>
-        <img src="${resource(dir:'images', file: 'persistence.jpeg')}" alt="Gorm" class="multi-pic"/>
+    <section data-background="#fff">
+        <img src="${resource(dir:'images', file: 'database.jpg')}" alt="Gorm" class="multi-pic"/>
         <img src="${resource(dir:'images', file: 'security.gif')}" alt="Security" class="multi-pic"/>
         <img src="${resource(dir:'images', file: 'plugins.jpg')}" alt="Plugins" class="multi-pic"/>
         <aside class="notes">
@@ -225,7 +227,7 @@
         </aside>
     </section>
 
-    <section>
+    <section data-background="#fff">
         <img src="${resource(dir:'images', file: 'yin_yang3.gif')}" alt="Yin and Yang"/>
         <aside class="notes">
             A quick aside <br/>
@@ -315,7 +317,7 @@ render json as JSON
     </section>    
 
     <section>
-        <h2>Grails 2.3+: TODO: REST API?</h2>
+        <h2>Grails 2.3+: REST API</h2>
         <pre>
             <code data-trim>
 import grails.rest.*
@@ -346,18 +348,19 @@ class Book {
         </aside>
     </section>
 
-    <section>
-        <h2>It's dangerous to go alone!</h2>
+    <section data-background="#fff">
+        
         <img src="${resource(dir: 'images', file: 'js-frameworks.jpg')}" alt="JS Frameworks"/>
 
         <aside class="notes">
-            Countless tools to help structure your front end code<br/>
+            First, though...
+            There are Countless tools to help structure your front end code<br/>
             You wouldn't write your server side code in raw Groovy, would you?<br/>
         </aside>
     </section>
 
-    <section>
-        <h2>Some are more rigid than others</h2>
+    <section data-background="#fff">
+        <h2 class="inverse">Some are more rigid than others</h2>
         <img src="${resource(dir: 'images', file: 'js-order.jpg')}" alt="Order of Obfuscation"/>
         <aside class="notes">
             These are the 3 that I hear the most about <br/>
@@ -430,7 +433,7 @@ _.extend(Note, Backbone.Events);
     <section>
         <h2>Event Delegates vs attached listeners</h2>
         <aside class="notes">
-            
+            -Your site won't respond well if you have many event handlers
         </aside>
     </section>
 
@@ -603,9 +606,8 @@ someHttpPromise.then(function(apiData){
         </aside>
     </section>
 
-    <section data-background="http://localhost:8080${resource(dir: 'images', file: 'twitter-logo.jpg')}"
-             data-background-size="75%">
-        
+    <section data-background="#fff">
+        <img src="http://localhost:8080${resource(dir: 'images', file: 'twitter-logo.jpg')}"/>
         <aside class="notes">
             Tell Twitter Story <br/>
             I feel like the answer is somewhere in between<br/>
@@ -665,7 +667,7 @@ someHttpPromise.then(function(apiData){
         <small>Yin / Yang: <a target="_blank" href="http://bodydivineyoga.files.wordpress.com/">http://bodydivineyoga.files.wordpress.com/</a></small>
         <small>JS, good parts: <a href="http://oreilly.com/" target="_blank">http://oreilly.com/</a></small>
         <small>Rage/Disapproval Face: <a href="http://knowyourmeme.com/" target="_blank">http://knowyourmeme.com/</a></small>
-        <small>Colbert Sweat Wipe: <a href="http://www.nofactzone.net/" target="_blank"></a>http://www.nofactzone.net/</small>
+        <small>Colbert Sweat Wipe: <a href="http://www.nofactzone.net/" target="_blank">http://www.nofactzone.net/</a></small>
         <small>Plugin Icon: <a href="http://iconify.it/" target="_blank">http://iconify.it/</a></small>
         <small>Scroll: <a href="http://www.roblox.com/" target="_blank">http://www.roblox.com/</a></small>
     </section>
