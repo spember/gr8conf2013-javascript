@@ -18,7 +18,7 @@
     <section data-background="http://localhost:8080${resource(dir: 'images', file: 'js-logo.png')}"
              data-background-size="55%">
         <aside class="notes">
-        Let's talk about javascript.
+        Let's talk about javascript.. and user engagement
         </aside>
     </section>
 
@@ -33,7 +33,7 @@
         <img src="${resource(dir: 'images', file: 'js-king.jpg')}" alt="JS is the King"/>
         <aside class="notes">
             JS is by far the better system for building more engaging experiences<br/>
-            - it is CRUSHING any competitors. Flash, Flex, and it's ilk - things we used to use a couple years ago - have been marginalized by this quirky little language.<br/>
+            - it, and HTML 5, are CRUSHING its competition. Flash, Flex, and it's ilk - things we used to use a couple years ago - have been marginalized by this quirky little language.<br/>
         </aside>
     </section>
 
@@ -46,11 +46,11 @@
         </ul>
 
         <aside class="notes">
-            Useful content, eye-catching design, tight/fast performance<br/><br/>
-            "CONTENT IS KING" - Bill Gates<br/>
-
+            *Useful content, **eye-catching design, **tight/fast performance or UX<br/><br/>
+            "CONTENT IS KING" - Bill Gates. it's true, no customer is going to use your app without great content<br/>
             I'm assuming everyone's primary occupation is that of a developer or engineer. Does anyone here primarily design things for work?<br/>
-            IF SO: I hope you're not a pixel-perfectionist. Assume that your design will flow
+            IF SO: I hope you're not a pixel-perfectionist. Assume that your design will flow<br/>
+            * Today, I'll focus on User Interaction Performance<br/>
         </aside>
     </section>
 
@@ -61,38 +61,46 @@
             *Deals with a study done that shows users give up on your application if nothing appears or there's no reaction after 1s when the user performs some action<br/>
             *App Performance is a multi day lecture, and I'm happy to discuss outside of this.<br/>
 
+
             
         </aside>
     </section>
 
     <section data-background="#fff">
-        <img src="${resource(dir: 'images', file: 'page-load-times.jpg')}" alt="Page Load times"/>
+        <img src="${resource(dir: 'images', file: 'desktop-vs-mobile-1.png')}" alt="Page Load times"/>
         <a href="http://analytics.blogspot.com/2012/04/global-site-speed-overview-how-fast-are.html">http://analytics.blogspot.com/2012/04/global-site-speed-overview-how-fast-are.html</a>
 
         <aside class="notes">
+            * Desktop: Mean 6.5s, Median: 2.5, Mobile: Mean 10+s, Median 4.5
             * Had one client with 3+ second load times. Claimed happily that they were in the top 30% of their competitors, meaning everyone else was slower<br/>
             * Internally, I'm thinking "Not exactly something to be proud of. Take responsibility, ownership in what you're coding and make it the best it can be."
-            *There are, of course. Several factors, Much of this latency is out of your control, especially on mobile. <br/>
-            ***switch->Control what you can
+            
         </aside>
     </section>
 
     <section>
         <h2>Control What you Can</h2>
+
+        <aside class="notes">
+            * Many factors in web performance, but some of it is out of your hands. Particularly, web latency. Get more into it later
+            Be adverse to initiating http requests<br/>
+            Only download what you need at any given point <br/>            
+        </aside>
     </section>
 
     <section>
         <h2>Triggering a full page refresh is <span class="focus-word">horrible</span> UX</h2>
         <aside class="notes">
-            Triggering a full page refresh is one of the slowest things you can do for a user experience<br/>
-            Your code could be great, but having bad UX really sours the experience<br/>
+            * Triggering a full page refresh is one of the slowest things you can do for a user experience<br/>
+            * Why? Causing a full refresh initiates requests for every object in your page. <br/>
+            * Your code could be great, but having bad UX really sours the experience<br/>
         </aside>
     </section>
 
     <section>
         <img src="${resource(dir: 'images', file: 'blank_screen.png')}" alt="Blank screens are bad"/>
         <aside class="notes">
-            You never want to have your users see this, or somewhat worse: <br/>
+            You never want to have your users see this, or:<br/>
             Site they were just on, clicked a link, and wait for a bit before the screen changes<br/>
         </aside>
     </section>
@@ -100,23 +108,26 @@
     <section>
         <img src="${resource(dir: 'images', file: 'multiple_devices.jpg')}" alt="Multiple Devices"/>
         <aside class="notes">
-            Furthermore, triggering a full refresh can send large amounts of data to your users, unless your cache and expire headers are top notch, which mitigates it<br/>
-            Respect your mobile users, slow connection speeds and data caps<br/>
-
-            Phones computational speed is outpacing their connection speeds<br/>
+            Furthermore, triggering a full refresh can send large amounts of data to your users <br/><br/>unless your cache and expire headers are top notch, which mitigates it<br/><br/>
+            ** Respect your mobile users with their slow connection speeds and data caps<br/>
         </aside>
     </section>
 
     <section>
-        <h2>Goal: Update Page content based on user input</h2>
+        <h2>Goal: Update Page content based on user input without full refresh</h2>
         <h3 class="fragment fade-in">Could we just use a sprinkling of AJAX / PJAX?</h3>
-        
+        <aside class="notes">
+            Ok, so if we want to be stingy about the number of requests we make for data or new objects, we should 
+            only ask for new objects or update the page content based on some user input event<br/>
+            *How? could we just use a sprinkinling of AJAX / PJAX? Maybe a bit of Jquery?
+        </aside>
     </section>
 
     <section data-background="#fff">
         <img src="${resource(dir: 'images', file: 'disapproval.jpg')}" alt="I disapprove">
         <aside class="notes">
             No....; it'll get out of hand quickly, I assure you.<br/>
+            I've seen plenty of clients' sites who attempted this and ended up with a morass of JS files and JQuery plugins.<br/> Executing on every page<br/>
             So how do we add an engaging user experience while minimizing data transfers?<br/>
         </aside>
     </section>
@@ -124,7 +135,9 @@
     <section>
         <h2>You should spend at least as much engineering on your Front End as your Back End</h2>
         <aside class="notes">
-            *slow*
+            Well, the the first thing to understand is:<br/>
+            *slow*<br/>
+            MAybe even more; Grails makes the back end so easy.<br/>
         </aside>
     </section>
 
@@ -245,10 +258,8 @@
     <section data-background="#fff">
         <img src="${resource(dir:'images', file: 'yin_yang3.gif')}" alt="Yin and Yang"/>
         <aside class="notes">
-            A quick aside <br/>
-            I feel like RD and PE are like the Yin and Yang of web dev<br/>
+            I feel like Responsive Design and PE are like the Yin and Yang of web dev<br/>
             Difficult to mention one without the other<br/>
-            As an aside, there's been some discussion the past month about JS, having too much of it, and PE. Be happy to talk afterwords<br/>
         </aside>
     </section>
 
@@ -276,8 +287,10 @@ if (smallBreak) {
 
         <aside class="notes">
             There's a presentation going on I believe right now on this very subject.<br/>
-            Grails makes a decent platform for driving your api, especially for querying.<br/><br/>
-            easy Caching, easy usage of alt data stores, renderers, etc.
+            Grails makes a decent platform for serving up your api, especially for querying.<br/><br/>
+            easy Caching, easy usage of alt data stores, renderers, etc.<br/>
+            More than 'render as JSON', there was another talk this morning that I unfortunately missed on this very subject<br/>
+
 
         </aside>
     </section>
@@ -595,6 +608,11 @@ someHttpPromise.then(function(apiData){
         <h2>7. Views / Dom element encapsulation</h2>
     </section>
 
+    
+    <section>
+        <img src="${resource( dir: 'images', file: 'dom_encapsulation.jpg')}" alt="Dom encapsulation">
+    </section>
+
     <section>
         <h2>8. Routes and modules</h2>
         <aside class="notes">
@@ -613,8 +631,9 @@ someHttpPromise.then(function(apiData){
     </section>
 
     <section>
-        <a href="http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/" target="_blank"><img src="${resource(dir: 'images', file: 'garbage-man.jpg')}" alt="Garbage Collector"></a>
+        <a href="http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/" target="_blank"><img src="${resource(dir: 'images', file: 'immature-garbage-man.jpg')}" alt="Garbage Collector"></a>
         <aside class="notes">
+            JS does not have a mature memory management scheme or GC<br/>
             Cannot force the garbage collector to work, can only get things ready for it.<br/>
             USE DELETE often<br/>
             Image is a link to a Great article on why mobile apps tend to be slow. Highlights MEMORY<br/>
@@ -624,7 +643,7 @@ someHttpPromise.then(function(apiData){
 
     <section>
         <img src="${resource(dir: 'images', file: 'js-transfer-size.jpg')}" alt="HTTP Archive: JS sizes of top 100 sites"/>
-        <h3><small>HTTP Archive: Top 100 sites, first visit</small></h3>
+        <h3><small><a href="http://httparchive.org/">HTTP Archive:</a> Top 100 sites, first visit</small></h3>
         <aside class="notes">
             Problem steadily getting worse<br/>
             HTTP Archive, top 100 sites, number of JS downloads plus KB<br/>
@@ -634,15 +653,19 @@ someHttpPromise.then(function(apiData){
 
     <section>
         <h2>Break up your App into modules</h2>
+        <aside class="notes">
+            The Resources Plugin is great for this; it will concat and minify your resources for you<br/>
+        </aside>
     </section>
 
     <section>
-        <h2>Urls Matter</h2>
-        <h3>Load / Unload modules based on current Route</h3>
+        
+        <h2>Load / Unload modules based on current Route</h2>
         <aside class="notes">
-            Veins of your app<br/>Urls are forever<br/>
+            
             define some sort of base module which contains rudiments of your app and knows to load or unload modules based on route<br/>
             <br/>Creating a Multi, single page app!<br/>
+
         </aside>
     </section>
 
@@ -697,7 +720,7 @@ someHttpPromise.then(function(apiData){
     </section>
 
     <section data-markdown>
-        ## The future will be exciting!
+        ## The future of Application Development will be exciting!
     </section>
 
     <section <section data-background="http://localhost:8080${resource(dir: 'images', file: 'js-logo.png')}"
@@ -709,7 +732,6 @@ someHttpPromise.then(function(apiData){
 
     <section>
         <h1>Thank You!</h1>
-        <h3>Questions?</h3>
     </section>
 
     <section>

@@ -28,6 +28,7 @@
         </div>
 
         <div class="large-4 columns">
+            <img src="${resource( dir: 'images', file: 'record.jpg')}"/>
             <p>This site is a sample application to demonstrate a Single Page Web App</p>
         </div>
     </div>
