@@ -57,11 +57,23 @@
     <section id="ttg" data-background="#fff">
         <img src="${resource(dir: 'images', file: '1000_ttg.jpg')}" alt="Time to Glass: 1000ms"/>
         <aside class="notes">
-            Has anyone heard of the 1000ms Time to Glass challenge?<br/>
-            Deals with a study done that shows users give up on your application if nothing appears after 1s <br/>
-            App Performance is a multi day lecture, and I'm happy to discuss outside of this.<br/>
-            Several factors, Much of this latency is out of your control, especially on mobile. <br/>
-            Control what you can -> switch
+            *Has anyone heard of the 1000ms Time to Glass challenge?<br/>
+            *Deals with a study done that shows users give up on your application if nothing appears or there's no reaction after 1s when the user performs some action<br/>
+            *App Performance is a multi day lecture, and I'm happy to discuss outside of this.<br/>
+
+            
+        </aside>
+    </section>
+
+    <section data-background="#fff">
+        <img src="${resource(dir: 'images', file: 'page-load-times.jpg')}" alt="Page Load times"/>
+        <a href="http://analytics.blogspot.com/2012/04/global-site-speed-overview-how-fast-are.html">http://analytics.blogspot.com/2012/04/global-site-speed-overview-how-fast-are.html</a>
+
+        <aside class="notes">
+            * Had one client with 3+ second load times. Claimed happily that they were in the top 30% of their competitors, meaning everyone else was slower<br/>
+            * Internally, I'm thinking "Not exactly something to be proud of. Take responsibility, ownership in what you're coding and make it the best it can be."
+            *There are, of course. Several factors, Much of this latency is out of your control, especially on mobile. <br/>
+            ***switch->Control what you can
         </aside>
     </section>
 
@@ -131,6 +143,7 @@
         <img src="${resource(dir:'images', file:'dev-tools.jpg')}" alt ="Chrome dev tools" />
         <aside class="notes">
             It's only recently become viable<br/>
+            This is a shot of the Chrome dev tools, but we also have testing, package management, build tools, etc.
             Take hold of them!</br>
         </aside>
     </section>
@@ -165,7 +178,8 @@
             I know my previous claim is full of hyperbole, but it's not entirely off<br/>
             This is the only time I'll read straight off of a slide, I promise. *READ SLIDE*<br/>
             Sounds a bit begrudging, eh?<br/>
-            He was calling out how Grails will need to change in 3.0 to adapt to the future
+            He was calling out how Grails will need to change in 3.0 to adapt to the future. Also, Peter Ledbrook had a talk
+            on this yesterday
 
         </aside>
     </section>
@@ -192,8 +206,9 @@
         <aside class="notes">
             Incredibly strong on the server side, which is exactly what we need for this sort of thing<br/>
             Aside from the usual reasons, I highlight Security, Persistence, Plugins<br/>
-            I mention Security separately because Spring Security is just so Excellent.<br/>
-            Combine this with some of the features coming in 2.3 and 3.0, and perhaps an option to drop the servlet context if not necessary. Will hopefully allow Grails<br/>
+            *I mention Security separately because Spring Security is just so Excellent.<br/>
+            * Also, Shiro! I asked the other night, "What else would you use besides SS?" -> angry stares<br/>
+            Combine this with some of the features coming in 2.3 and 3.0, and perhaps an option to drop the filter chain stack, if not necessary. Anyone see Colin's presentation "There and back again" yesterday?<br/>
         </aside>
     </section>
 
@@ -282,10 +297,12 @@ if (smallBreak) {
 // A simple example. Build up a map and render it as opposed to a regular DO
 //            
 Author author = Author.get(params.id)
-Map json = ["name": author.name, "id": author.id, bookCount: Book.countByAuthor(author)]
-if (params.addBbooks) {
-    json["books"] = Book.findAllByAuthor(author).collect {book ->
+Map json = [ "name": author.name, "id": author.id, 
+            bookCount: Book.countByAuthor(author) ] 
+if (params.addBooks) {
+    json["books"] = Book.findAllByAuthor(author).collect { book ->
         book.toJSON() //perhaps a .toJson() method for convenience on a DO?
+        // in Grails 2.3 we'll have custom renderers we could use!
     }             
 }
 
@@ -338,6 +355,31 @@ class Book {
         <h2>But Responsive Responses? ....</h2>
         <aside class="notes">
             Unfortunately, to make our api calls responsive and adjust to query parameters, we'll need to still use the old style, for now.
+        </aside>
+    </section>
+
+    <section>
+        <pre><code data-trim>
+class BookController extends RestfulController {
+    static responseFormats = ['json', 'xml']
+    BookController() {
+        super(Book)
+    }
+    @Override
+    Book queryForResource(Serializable id) {
+        Book.where {
+            id == id && author.id = params.authorId
+        }.find()
+    }
+
+}            
+
+        </code></pre>
+
+        <aside class="notes">
+            * Still want to use normal controllers
+            * Or perhaps the new RestfulController approach
+            * update, read about it
         </aside>
     </section>
     
@@ -394,6 +436,14 @@ class Book {
     </section>
 
     <section>
+        <img src="${resource(dir:'images', file:'js-good-parts-comparison.jpg')}" alt="ugh"/>
+        <aside class="notes">
+            It's quite a subset, unfortunately.<br/>
+            What I'm getting at is: Javascript will be probably be the weakest part of your app. I still love it, though. quirks and all<br/>
+        </aside>
+    </section>
+
+    <section>
         <h2>2. Prototypes, not classes</h2>
         <h3>At least until ECMA 6</h3>
         <aside class="notes">
@@ -401,10 +451,6 @@ class Book {
             Attempts are still made to force classes into it (Backbone, ECMA 6)<br/>
             However, power in Javascript comes from composition<br/>
         </aside>
-    </section>
-
-    <section>
-        <h2>TODO: code snippet showing composition</h2>
     </section>
 
     <section>
@@ -418,10 +464,13 @@ var Note = Backbone.Models.extend({})
 // use Underscore.js's extend to compose the Backbone Events
 var Note = {};
 _.extend(Note, Backbone.Events);
+// do more!
+_.extend(Note, MyCustomObj);
             </code>
         </pre>
         <aside class="notes">
             For example, to get around Backbone forcing you to extend their models, you can do something like this<br/>
+            Perhaps wrap this in a Factory pattern<br/>
         </aside>
     </section>
 
@@ -452,8 +501,14 @@ $("table").on("click", "td", function() {
     </section>
 
     <section>
-        <h2> Reflow:  Changes involving visibility / visuals</h2>
-        <h2> Repaint: Changes involving structure, layout, height, etc.</h2>
+        
+        <h2> Reflow: Changes involving structure, layout, height, etc.</h2>
+        <h2> Repaint:  Changes involving visibility / visuals</h2>
+        <aside class="notes">
+            Repaint is expensive: Browser must recalculate visiblity of all nodes
+            Reflow is even MORE expensive: dealing with structure of site
+        </aside>
+
     </section>
 
     <section>
