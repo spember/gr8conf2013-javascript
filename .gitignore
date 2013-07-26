@@ -6,5 +6,5 @@ target/*
 *.ipr
 *.iws
 *.class
-
+.DS_Store
 node_modules
